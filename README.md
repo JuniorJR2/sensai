@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sensai: Coach de Carrera con IA Full Stack
 
-## Getting Started
+Una aplicación web moderna que utiliza inteligencia artificial para ayudar a los profesionales a avanzar en sus carreras. Ofrece herramientas personalizadas para la creación de currículums, generación de cartas de presentación y preparación para entrevistas, todo adaptado a la industria y habilidades del usuario.
 
-First, run the development server:
+![sensai](https://github.com/user-attachments/assets/eee79242-4056-4d19-b655-2873788979e1)
+
+## 🌟 Características
+
+- 📝️ **Creador de Currículums con IA:** Genera currículums optimizados para ATS (Sistemas de Seguimiento de Candidatos) con la ayuda de la inteligencia artificial.
+- ✉️ **Generador de Cartas de Presentación:** Crea cartas de presentación personalizadas y convincentes para cada solicitud de empleo.
+- 🎯 **Preparación de Entrevistas:** Practica con preguntas de entrevista específicas de la industria y recibe retroalimentación instantánea.
+- 📊 **Perspectivas de la Industria:** Obtén datos en tiempo real sobre tendencias del mercado, rangos salariales y habilidades demandadas.
+- 🌍 **Soporte Multi-industria:** Personaliza la experiencia para más de 50 industrias diferentes.
+- 🤖 **Experiencia de Usuario Moderna:** Una interfaz limpia, rápida y responsive construida con Next.js y Tailwind CSS.
+
+## 🛠️ Stack Tecnológico
+
+- **Frontend:** React, Next.js, JavaScript, Tailwind CSS, Shadcn/ui
+- **Backend:** Node.js, Prisma, Inngest
+- **Base de Datos:** Neon (PostgreSQL)
+- **Autenticación:** Clerk
+- **Inteligencia Artificial:** Google Gemini API
+- **Despliegue:** Vercel
+
+## 🚀 Empezando
+
+Sigue estos sencillos pasos para configurar y ejecutar una copia local del proyecto en tu máquina.
+
+### Prerrequisitos
+
+Asegúrate de tener instalado [Node.js](https://nodejs.org/) (versión 18 o superior) y [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/).
+
+### 1. Clona el Repositorio
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+cd TU_REPOSITORIO
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm install
+# o
+yarn install
+# o
+pnpm install
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+# URL de tu base de datos de Neon
+DATABASE_URL=
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Claves de la API de Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
 
-## Learn More
+# URLs de redirección de Clerk
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/onboarding
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Clave de la API de Google Gemini
+GEMINI_API_KEY=

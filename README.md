@@ -2,7 +2,6 @@
 
 Una aplicación web moderna que utiliza inteligencia artificial para ayudar a los profesionales a avanzar en sus carreras. Ofrece herramientas personalizadas para la creación de currículums, generación de cartas de presentación y preparación para entrevistas, todo adaptado a la industria y habilidades del usuario.
 
-![sensai](https://github.com/user-attachments/assets/eee79242-4056-4d19-b655-2873788979e1)
 
 ## 🌟 Características
 

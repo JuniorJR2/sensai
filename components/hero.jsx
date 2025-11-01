@@ -31,25 +31,25 @@ const HeroSection = () => {
       <div className="space-y-6 text-center">
         <div className="space-y-6 mx-auto">
           <h1 className="text-5xl font-bold md:text-6xl lg:text-7xl xl:text-8xl gradient gradient-title">
-            Your AI Career Coach for
+            Tu Coach de Carrera con IA para el
             <br />
-            Professional Success
+            Éxito Profesional
           </h1>
           <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl">
-            Advance your career with personalized guidance, interview prep, and
-            AI-power tools for jobs success
+            Avanza en tu carrera con guía personalizada, preparación para
+            entrevistas y herramientas con IA para el éxito laboral
           </p>
         </div>
 
         <div className="flex justify-center space-x-4">
           <Link href="/dashboard">
             <Button size="lg" className="px-8">
-              Get Started
+              Comenzar
             </Button>
           </Link>
           <Link href="https://www.youtube.com/roadsidecoder">
             <Button size="lg" className="px-8" variant="outline">
-              Get Started
+              Comenzar
             </Button>
           </Link>
         </div>

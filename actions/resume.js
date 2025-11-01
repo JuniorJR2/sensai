@@ -11,13 +11,13 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 export async function saveResume(content) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     try {
         const resume = await db.resume.upsert({
@@ -36,20 +36,20 @@ export async function saveResume(content) {
         revalidatePath("/resume");
         return resume;
     } catch (error) {
-        console.error("Error saving resume:", error);
-        throw new Error("Failed to save resume");
+        console.error("Error al guardar el currículum:", error);
+        throw new Error("Error al guardar el currículum");
     }
 }
 
 export async function getResume() {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     return await db.resume.findUnique({
         where: {
@@ -60,7 +60,7 @@ export async function getResume() {
 
 export async function improveWithAI({ current, type }) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
@@ -69,22 +69,22 @@ export async function improveWithAI({ current, type }) {
         },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     const prompt = `
-    As an expert resume writer, improve the following ${type} description for a ${user.industry} professional.
-    Make it more impactful, quantifiable, and aligned with industry standards.
-    Current content: "${current}"
+    Como experto redactor de currículums, mejora la siguiente descripción de ${type} para un profesional de ${user.industry}.
+    Hazla más impactante, cuantificable y alineada con los estándares de la industria.
+    Contenido actual: "${current}"
 
-    Requirements:
-    1. Use action verbs
-    2. Include metrics and results where possible
-    3. Highlight relevant technical skills
-    4. Keep it concise but detailed
-    5. Focus on achievements over responsibilities
-    6. Use industry-specific keywords
+    Requisitos:
+    1. Usa verbos de acción
+    2. Incluye métricas y resultados cuando sea posible
+    3. Destaca las habilidades técnicas relevantes
+    4. Sé conciso pero detallado
+    5. Céntrate en los logros sobre las responsabilidades
+    6. Usa palabras clave específicas de la industria
     
-    Format the response as a single paragraph without any additional text or explanations.
+    Formatea la respuesta como un solo párrafo sin texto ni explicaciones adicionales.
   `;
 
     try {
@@ -93,7 +93,7 @@ export async function improveWithAI({ current, type }) {
         const improvedContent = response.text().trim();
         return improvedContent;
     } catch (error) {
-        console.error("Error improving content:", error);
-        throw new Error("Failed to improve content");
+        console.error("Error al mejorar el contenido:", error);
+        throw new Error("Error al mejorar el contenido");
     }
 }

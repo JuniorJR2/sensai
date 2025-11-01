@@ -10,37 +10,37 @@ const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
 export async function generateCoverLetter(data) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     const prompt = `
-    Write a professional cover letter for a ${data.jobTitle} position at ${data.companyName
+    Escribe una carta de presentación profesional para un puesto de ${data.jobTitle} en ${data.companyName
         }.
     
-    About the candidate:
-    - Industry: ${user.industry}
-    - Years of Experience: ${user.experience}
-    - Skills: ${user.skills?.join(", ")}
-    - Professional Background: ${user.bio}
+    Sobre el candidato:
+    - Industria: ${user.industry}
+    - Años de Experiencia: ${user.experience}
+    - Habilidades: ${user.skills?.join(", ")}
+    - Trayectoria Profesional: ${user.bio}
     
-    Job Description:
+    Descripción del Puesto:
     ${data.jobDescription}
     
-    Requirements:
-    1. Use a professional, enthusiastic tone
-    2. Highlight relevant skills and experience
-    3. Show understanding of the company's needs
-    4. Keep it concise (max 400 words)
-    5. Use proper business letter formatting in markdown
-    6. Include specific examples of achievements
-    7. Relate candidate's background to job requirements
+    Requisitos:
+    1. Usa un tono profesional y entusiasta
+    2. Destaca las habilidades y experiencia relevantes
+    3. Muestra comprensión de las necesidades de la empresa
+    4. Sé conciso (máximo 400 palabras)
+    5. Usa un formato de carta de negocios proper en markdown
+    6. Incluye ejemplos específicos de logros
+    7. Relaciona la trayectoria del candidato con los requisitos del puesto
     
-    Format the letter in markdown.
+    Formatea la carta en markdown.
   `;
 
     try {
@@ -53,7 +53,7 @@ export async function generateCoverLetter(data) {
                 jobDescription: data.jobDescription,
                 companyName: data.companyName,
                 jobTitle: data.jobTitle,
-                status: "completed",
+                status: "completed", // Nota: Mantener "completed" para no romper la DB
                 userId: user.id,
             },
         });
@@ -61,19 +61,19 @@ export async function generateCoverLetter(data) {
         return coverLetter;
     } catch (error) {
         console.error("Error generating cover letter:", error.message);
-        throw new Error("Failed to generate cover letter");
+        throw new Error("Error al generar la carta de presentación");
     }
 }
 
 export async function getCoverLetters() {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     return await db.coverLetter.findMany({
         where: {
@@ -87,13 +87,13 @@ export async function getCoverLetters() {
 
 export async function getCoverLetter(id) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     return await db.coverLetter.findUnique({
         where: {
@@ -105,13 +105,13 @@ export async function getCoverLetter(id) {
 
 export async function deleteCoverLetter(id) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     return await db.coverLetter.delete({
         where: {

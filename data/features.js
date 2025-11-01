@@ -3,25 +3,25 @@ import { BrainCircuit, Briefcase, LineChart, ScrollText } from "lucide-react";
 export const features = [
   {
     icon: <BrainCircuit className="w-10 h-10 mb-4 text-primary" />,
-    title: "AI-Powered Career Guidance",
+    title: "Guía de Carrera con IA",
     description:
-      "Get personalized career advice and insights powered by advanced AI technology.",
+      "Obtén asesoramiento y perspectivas de carrera personalizadas, potenciadas por tecnología de IA avanzada.",
   },
   {
     icon: <Briefcase className="w-10 h-10 mb-4 text-primary" />,
-    title: "Interview Preparation",
+    title: "Preparación de Entrevistas",
     description:
-      "Practice with role-specific questions and get instant feedback to improve your performance.",
+      "Practica con preguntas específicas del puesto y obtén retroalimentación instantánea para mejorar tu rendimiento.",
   },
   {
     icon: <LineChart className="w-10 h-10 mb-4 text-primary" />,
-    title: "Industry Insights",
+    title: "Perspectivas de la Industria",
     description:
-      "Stay ahead with real-time industry trends, salary data, and market analysis.",
+      "Mantente a la vanguardia con tendencias de la industria en tiempo real, datos salariales y análisis de mercado.",
   },
   {
     icon: <ScrollText className="w-10 h-10 mb-4 text-primary" />,
-    title: "Smart Resume Creation",
-    description: "Generate ATS-optimized resumes with AI assistance.",
+    title: "Creación Inteligente de Currículums",
+    description: "Genera currículums optimizados para ATS con la ayuda de la IA.",
   },
 ];

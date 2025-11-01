@@ -31,10 +31,12 @@ export default function CoverLetterList({ coverLetters }) {
   const handleDelete = async (id) => {
     try {
       await deleteCoverLetter(id);
-      toast.success('Cover letter deleted successfully!');
+      toast.success('¡Carta de presentación eliminada con éxito!');
       router.refresh();
     } catch (error) {
-      toast.error(error.message || 'Failed to delete cover letter');
+      toast.error(
+        error.message || 'Error al eliminar la carta de presentación'
+      );
     }
   };
 
@@ -42,9 +44,9 @@ export default function CoverLetterList({ coverLetters }) {
     return (
       <Card>
         <CardHeader>
-          <CardTitle>No Cover Letters Yet</CardTitle>
+          <CardTitle>Aún no hay Cartas de Presentación</CardTitle>
           <CardDescription>
-            Create your first cover letter to get started
+            Crea tu primera carta de presentación para empezar
           </CardDescription>
         </CardHeader>
       </Card>
@@ -59,10 +61,10 @@ export default function CoverLetterList({ coverLetters }) {
             <div className="flex items-start justify-between">
               <div>
                 <CardTitle className="text-xl gradient-title">
-                  {letter.jobTitle} at {letter.companyName}
+                  {letter.jobTitle} en {letter.companyName}
                 </CardTitle>
                 <CardDescription>
-                  Created {format(new Date(letter.createdAt), 'PPP')}
+                  Creada {format(new Date(letter.createdAt), 'PPP')}
                 </CardDescription>
               </div>
               <div className="flex space-x-2">
@@ -81,20 +83,22 @@ export default function CoverLetterList({ coverLetters }) {
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
-                      <AlertDialogTitle>Delete Cover Letter?</AlertDialogTitle>
+                      <AlertDialogTitle>
+                        ¿Eliminar Carta de Presentación?
+                      </AlertDialogTitle>
                       <AlertDialogDescription>
-                        This action cannot be undone. This will permanently
-                        delete your cover letter for {letter.jobTitle} at{' '}
-                        {letter.companyName}.
+                        Esta acción no se puede deshacer. Esto eliminará
+                        permanentemente tu carta de presentación para el puesto
+                        de {letter.jobTitle} en {letter.companyName}.
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogCancel>Cancelar</AlertDialogCancel>
                       <AlertDialogAction
                         onClick={() => handleDelete(letter.id)}
                         className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
                       >
-                        Delete
+                        Eliminar
                       </AlertDialogAction>
                     </AlertDialogFooter>
                   </AlertDialogContent>

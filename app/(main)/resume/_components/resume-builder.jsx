@@ -90,8 +90,8 @@ const ResumeBuilder = ({ initialContent }) => {
     const { summary, skills, experience, education, projects } = formValues;
     return [
       getContactMarkdown(),
-      summary && `## Professional Summary\n\n${summary}`,
-      skills && `## Skills\n\n${skills}`,
+      summary && `## Resumen Profesional\n\n${summary}`,
+      skills && `## Habilidades\n\n${skills}`,
       entriesToMarkdown(experience, 'Work Experience'),
       entriesToMarkdown(education, 'Education'),
       entriesToMarkdown(projects, 'Projects'),
@@ -109,7 +109,7 @@ const ResumeBuilder = ({ initialContent }) => {
     }
 
     setIsGenerating(true);
-    toast.loading('Preparing PDF...');
+    toast.loading('Preparando PDF...');
 
     // --- INICIO DEL APAGÓN DE ESTILOS ---
     const stylesheets = Array.from(
@@ -140,7 +140,7 @@ const ResumeBuilder = ({ initialContent }) => {
       // 3.  ELEMENTO DIV DESCONECTADO
       const pdfElement = document.createElement('div');
 
-      // 4. Apliccion de estilos DIRECTAMENTE.
+      // 4. Aplicacion de estilos DIRECTAMENTE.
       pdfElement.style.fontFamily = 'system-ui, -apple-system, sans-serif';
       pdfElement.style.fontSize = '12px';
       pdfElement.style.lineHeight = '1.6';
@@ -174,16 +174,16 @@ const ResumeBuilder = ({ initialContent }) => {
       };
 
       toast.dismiss();
-      toast.loading('Generating PDF...');
+      toast.loading('Generando PDF...');
 
       await html2pdf().set(opt).from(pdfElement).save();
 
       toast.dismiss();
-      toast.success('PDF downloaded successfully!');
+      toast.success('¡PDF descargado con éxito!');
     } catch (error) {
       console.error('PDF generation error:', error);
       toast.dismiss();
-      toast.error('Failed to generate PDF. Please check the console.');
+      toast.error('Error al generar el PDF. Revisa la consola.');
     } finally {
       // --- INICIO DE LA RESTAURACIÓN ---
       stylesheets.forEach((sheet) => {
@@ -213,7 +213,7 @@ const ResumeBuilder = ({ initialContent }) => {
     <div className="space-y-4">
       <div className="flex flex-col md:flex-row justify-between items-center gap-2">
         <h1 className="font-bold gradient-title text-5xl md:text-6xl">
-          Resume Builder
+          Creador de Currículum
         </h1>
         <div className="space-x-2">
           <Button
@@ -224,12 +224,12 @@ const ResumeBuilder = ({ initialContent }) => {
             {isSaving ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Saving...
+                Guardando...
               </>
             ) : (
               <>
                 <Save className="h-4 w-4" />
-                Save
+                Guardar
               </>
             )}
           </Button>
@@ -237,12 +237,12 @@ const ResumeBuilder = ({ initialContent }) => {
             {isGenerating ? (
               <>
                 <Loader2 className="h-4 w-4 animate-spin" />
-                Generating PDF...
+                Generando PDF...
               </>
             ) : (
               <>
                 <Download className="h-4 w-4" />
-                Download PDF
+                Descargar PDF
               </>
             )}
           </Button>
@@ -251,20 +251,22 @@ const ResumeBuilder = ({ initialContent }) => {
 
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList>
-          <TabsTrigger value="edit">Form</TabsTrigger>
+          <TabsTrigger value="edit">Formulario</TabsTrigger>
           <TabsTrigger value="preview">Markdown</TabsTrigger>
         </TabsList>
         <TabsContent value="edit">
           <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Contact Information</h3>
+              <h3 className="text-lg font-medium">Información de Contacto</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 border rounded-lg bg-muted/50">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Email</label>
+                  <label className="text-sm font-medium">
+                    Correo Electrónico
+                  </label>
                   <Input
                     {...register('contactInfo.email')}
                     type="email"
-                    placeholder="your@email.com"
+                    placeholder="tu@email.com"
                     error={errors.contactInfo?.email}
                   />
                   {errors.contactInfo?.email && (
@@ -275,7 +277,9 @@ const ResumeBuilder = ({ initialContent }) => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">Mobile Number</label>
+                  <label className="text-sm font-medium">
+                    Número de Teléfono
+                  </label>
                   <Input
                     {...register('contactInfo.mobile')}
                     type="tel"
@@ -289,11 +293,11 @@ const ResumeBuilder = ({ initialContent }) => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-medium">LinkeIn URL</label>
+                  <label className="text-sm font-medium">URL de LinkedIn</label>
                   <Input
                     {...register('contactInfo.linkedin')}
                     type="url"
-                    placeholder="https://linkedin.com/in/yout-porfile"
+                    placeholder="https://linkedin.com/in/tu-perfil"
                   />
                   {errors.contactInfo?.linkedin && (
                     <p className="text-sm text-red-500">
@@ -304,12 +308,12 @@ const ResumeBuilder = ({ initialContent }) => {
 
                 <div className="space-y-2">
                   <label className="text-sm font-medium">
-                    Twitter/X Profile
+                    Perfil de Twitter/X
                   </label>
                   <Input
                     {...register('contactInfo.twitter')}
                     type="url"
-                    placeholder="https://teitter.com/your-handle"
+                    placeholder="https://twitter.com/tu-usuario"
                   />
                   {errors.contactInfo?.twitter && (
                     <p className="text-sm text-red-500">
@@ -321,7 +325,7 @@ const ResumeBuilder = ({ initialContent }) => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Proffessional Summary</h3>
+              <h3 className="text-lg font-medium">Resumen Profesional</h3>
               <Controller
                 name="summary"
                 control={control}
@@ -329,7 +333,7 @@ const ResumeBuilder = ({ initialContent }) => {
                   <Textarea
                     {...field}
                     className="h-32"
-                    placeholder="write a compelling professional summary..."
+                    placeholder="escribe un resumen profesional convincente..."
                     error={errors.summary}
                   />
                 )}
@@ -340,7 +344,7 @@ const ResumeBuilder = ({ initialContent }) => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Skills</h3>
+              <h3 className="text-lg font-medium">Habilidades</h3>
               <Controller
                 name="skills"
                 control={control}
@@ -348,7 +352,7 @@ const ResumeBuilder = ({ initialContent }) => {
                   <Textarea
                     {...field}
                     className="h-32"
-                    placeholder="List your key skills"
+                    placeholder="enumera tus habilidades clave"
                     error={errors.skills}
                   />
                 )}
@@ -359,7 +363,7 @@ const ResumeBuilder = ({ initialContent }) => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Work Experience</h3>
+              <h3 className="text-lg font-medium">Experiencia Laboral</h3>
               <Controller
                 name="experience"
                 control={control}
@@ -379,7 +383,7 @@ const ResumeBuilder = ({ initialContent }) => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Education</h3>
+              <h3 className="text-lg font-medium">Educación</h3>
               <Controller
                 name="education"
                 control={control}
@@ -399,7 +403,7 @@ const ResumeBuilder = ({ initialContent }) => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-medium">Projects</h3>
+              <h3 className="text-lg font-medium">Proyectos</h3>
               <Controller
                 name="projects"
                 control={control}
@@ -432,12 +436,12 @@ const ResumeBuilder = ({ initialContent }) => {
               {resumeMode === 'preview' ? (
                 <>
                   <Edit className="h-4 w-4" />
-                  Edit Resume
+                  Editar Currículum
                 </>
               ) : (
                 <>
                   <Monitor className="h-4 w-4" />
-                  Show Preview
+                  Mostrar Vista Previa
                 </>
               )}
             </Button>
@@ -447,12 +451,14 @@ const ResumeBuilder = ({ initialContent }) => {
             <div className="flex p-3 gap-2 items-center border-2 border-yellow-600 text-yellow-600 rounded mb-2">
               <AlertTriangle className="h-5 w-5" />
               <span className="text-sm">
-                You will lose editied markdown if you update the form data.
+                Perderás el markdown editado si actualizas los datos del
+                formulario.
               </span>
             </div>
           )}
           <div className="border rounded-lg">
             <MDEditor
+              data-color-mode="light"
               value={previewContent}
               onChange={setPreviewContent}
               height={800}

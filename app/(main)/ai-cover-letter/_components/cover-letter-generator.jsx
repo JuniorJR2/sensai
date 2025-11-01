@@ -43,7 +43,7 @@ export default function CoverLetterGenerator() {
   // Update content when letter is generated
   useEffect(() => {
     if (generatedLetter) {
-      toast.success('Cover letter generated successfully!');
+      toast.success('¡Carta de presentación generada con éxito!');
       router.push(`/ai-cover-letter/${generatedLetter.id}`);
       reset();
     }
@@ -53,7 +53,7 @@ export default function CoverLetterGenerator() {
     try {
       await generateLetterFn(data);
     } catch (error) {
-      toast.error(error.message || 'Failed to generate cover letter');
+      toast.error(error.message || 'Error al generar la carta de presentación');
     }
   };
 
@@ -61,9 +61,9 @@ export default function CoverLetterGenerator() {
     <div className="space-y-6">
       <Card>
         <CardHeader>
-          <CardTitle>Job Details</CardTitle>
+          <CardTitle>Detalles del Puesto</CardTitle>
           <CardDescription>
-            Provide information about the position you're applying for
+            Proporciona información sobre el puesto al que postulas
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -71,10 +71,10 @@ export default function CoverLetterGenerator() {
             {/* Form fields remain the same */}
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
-                <Label htmlFor="companyName">Company Name</Label>
+                <Label htmlFor="companyName">Nombre de la Empresa</Label>
                 <Input
                   id="companyName"
-                  placeholder="Enter company name"
+                  placeholder="Introduce el nombre de la empresa"
                   {...register('companyName')}
                 />
                 {errors.companyName && (
@@ -85,10 +85,10 @@ export default function CoverLetterGenerator() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="jobTitle">Job Title</Label>
+                <Label htmlFor="jobTitle">Título del Puesto</Label>
                 <Input
                   id="jobTitle"
-                  placeholder="Enter job title"
+                  placeholder="Introduce el título del puesto"
                   {...register('jobTitle')}
                 />
                 {errors.jobTitle && (
@@ -100,10 +100,10 @@ export default function CoverLetterGenerator() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="jobDescription">Job Description</Label>
+              <Label htmlFor="jobDescription">Descripción del Puesto</Label>
               <Textarea
                 id="jobDescription"
-                placeholder="Paste the job description here"
+                placeholder="Pega la descripción del puesto aquí"
                 className="h-32"
                 {...register('jobDescription')}
               />
@@ -119,10 +119,10 @@ export default function CoverLetterGenerator() {
                 {generating ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Generating...
+                    Generando...
                   </>
                 ) : (
-                  'Generate Cover Letter'
+                  'Generar Carta de Presentación'
                 )}
               </Button>
             </div>

@@ -25,7 +25,7 @@ export default function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
-            Powerful Features for Your Career Growth
+            Caracteristicas Poderosas para tu Crecimiento Profesional
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {features.map((feature, index) => {
@@ -57,19 +57,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             <div className="flex flex-auto items-center justify-center space-y-2">
               <h3 className="text-4xl font-bold">50+</h3>
-              <p className="text-muted-foreground">Industries Coverd</p>
+              <p className="text-muted-foreground">Industrias Cubiertas</p>
             </div>
             <div className="flex flex-auto items-center justify-center space-y-2">
               <h3 className="text-4xl font-bold">1000+</h3>
-              <p className="text-muted-foreground">Interview Questions</p>
+              <p className="text-muted-foreground">Preguntas de Entrevista</p>
             </div>
             <div className="flex flex-auto items-center justify-center space-y-2">
               <h3 className="text-4xl font-bold">95%</h3>
-              <p className="text-muted-foreground">Succes Rate</p>
+              <p className="text-muted-foreground">Tasa de exito</p>
             </div>
             <div className="flex flex-auto items-center justify-center space-y-2">
               <h3 className="text-4xl font-bold">24/7</h3>
-              <p className="text-muted-foreground">AI Support</p>
+              <p className="text-muted-foreground">Soporte con IA</p>
             </div>
           </div>
         </div>
@@ -78,9 +78,9 @@ export default function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">How It Works</h2>
+            <h2 className="text-3xl font-bold mb-4">¿Cómo Funciona?</h2>
             <p className="text-muted-foreground">
-              Four simple steps to acelerate your career Growth
+              Cuatro simples pasos para acelerar tu crecimiento profesional
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-muted/50">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold tracking-tighter text-center mb-12">
-            What Our Users Say
+            Lo que Dicen Nuestros Usuarios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonial.map((testimonial, index) => {
@@ -157,11 +157,9 @@ export default function Home() {
       <section className="w-full py-12 md:py-24 lg:py-32 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-4">
-              Frequently Asked Questions
-            </h2>
+            <h2 className="text-3xl font-bold mb-4">Preguntas Frecuentes</h2>
             <p className="text-muted-foreground">
-              Find answer to common questions about our platform
+              Encuentra respuestas a preguntas comunes sobre nuestra plataforma
             </p>
           </div>
 
@@ -184,11 +182,11 @@ export default function Home() {
         <div className="mx-auto py-24 gradient rounded-lg">
           <div className="flex flex-col items-center justify-center space-y-4 text-center max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold tracking-tighter text-primary-foreground sm:text-4xl md:text-5xl">
-              Ready to Accelerate Your Career?
+              ¿Listo para Acelerar tu Carrera?
             </h2>
             <p className="mx-auto max-w-[600px] text-primary-foreground/80 md:text-xl">
-              Join thousands of professionals who are advancing their careers
-              width AI-powered guidance
+              Únete a miles de profesionales que están avanzando en sus carreras
+              con orientación impulsada por IA
             </p>
 
             <Link href="/dashboard" passHref>
@@ -197,7 +195,8 @@ export default function Home() {
                 variant="secondary"
                 className="h-11 mt-5 animate-bounce"
               >
-                Start Your Journey Today <ArrowRight className="ml-2 h-4 w-4" />
+                Comienza tu viaje hoy
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
           </div>

@@ -12,7 +12,7 @@ const model = genAI.getGenerativeModel({
 
 export async function generateQuiz() {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: {
@@ -20,19 +20,17 @@ export async function generateQuiz() {
         },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     try {
-
-
         const prompt = `
-    Generate 3 technical interview questions for a ${user.industry
-            } professional${user.skills?.length ? ` with expertise in ${user.skills.join(", ")}` : ""
+    Genera 10 preguntas de entrevista técnica para un profesional de ${user.industry
+            }${user.skills?.length ? ` con experiencia en ${user.skills.join(", ")}` : ""
             }.
     
-    Each question should be multiple choice with 4 options.
+    Cada pregunta debe ser de opción múltiple con 4 opciones.
     
-    Return the response in this JSON format only, no additional text:
+    Devuelve la respuesta ÚNICAMENTE en este formato JSON, sin texto adicional:
     {
       "questions": [
         {
@@ -54,14 +52,14 @@ export async function generateQuiz() {
 
         return quiz.questions;
     } catch (error) {
-        console.error("Error generating quiz:", error);
-        throw new Error("Failed to generate quiz questions");
+        console.error("Error al generar el cuestionario:", error);
+        throw new Error("Error al generar las preguntas del cuestionario");
     }
 }
 
 export async function saveQuizResult(questions, answers, score) {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: {
@@ -69,7 +67,7 @@ export async function saveQuizResult(questions, answers, score) {
         },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     const questionResults = questions.map((q, index) => ({
         question: q.question,
@@ -87,19 +85,19 @@ export async function saveQuizResult(questions, answers, score) {
         const wrongQuestionsText = wrongAnswers
             .map(
                 (q) =>
-                    `Question: "${q.question}"\nCorrect Answer: "${q.answer}"\nUser Answer: "${q.userAnswer}`
+                    `Pregunta: "${q.question}"\nRespuesta Correcta: "${q.answer}"\nRespuesta del Usuario: "${q.userAnswer}`
             )
             .join("\n\n");
 
         const improvementPrompt = `
-            The user got the following ${user.industry} technical interview questions wrong:
+            El usuario respondió incorrectamente a las siguientes preguntas de entrevista técnica de ${user.industry}:
 
              ${wrongQuestionsText}
 
-            Based on these mistakes, provide a concise, specific improvement tip.
-            Focus on the knowledge gaps revealed by these wrong answers.
-            Keep the response under 2 sentences and make it encouraging.
-            Don't explicitly mention the mistakes, instead focus on what to learn/practice.
+            Basándose en estos errores, proporciona un consejo de mejora conciso y específico.
+            Enfócate en las lagunas de conocimiento reveladas por estas respuestas incorrectas.
+            Mantén la respuesta en menos de 2 frases y hazla alentadora.
+            No menciones los errores explícitamente, en su lugar, enfócate en qué aprender/practicar.
         `;
 
         try {
@@ -107,8 +105,8 @@ export async function saveQuizResult(questions, answers, score) {
             improvementTip = tipResult.response.text().trim();
             console.log(improvementTip);
         } catch (error) {
-            console.error("Error generating improvement tip:", error);
-            // Continue without improvement tip if generation fails
+            console.error("Error al generar el consejo de mejora:", error);
+            // Continuar sin el consejo de mejora si la generación falla
         }
     }
 
@@ -118,27 +116,27 @@ export async function saveQuizResult(questions, answers, score) {
                 userId: user.id,
                 quizScore: score,
                 questions: questionResults,
-                category: "Technical",
+                category: "Technical", // Nota: Mantener "Technical" para no romper la DB
                 improvementTip,
             },
         });
 
         return assessment;
     } catch (error) {
-        console.error("Error saving quiz result:", error);
-        throw new Error("Failed to save quiz result");
+        console.error("Error al guardar el resultado del cuestionario:", error);
+        throw new Error("Error al guardar el resultado del cuestionario");
     }
 }
 
 export async function getAssessments() {
     const { userId } = await auth();
-    if (!userId) throw new Error("Unauthorized");
+    if (!userId) throw new Error("No autorizado");
 
     const user = await db.user.findUnique({
         where: { clerkUserId: userId },
     });
 
-    if (!user) throw new Error("User not found");
+    if (!user) throw new Error("Usuario no encontrado");
 
     try {
         const assessments = await db.assessment.findMany({
@@ -152,7 +150,7 @@ export async function getAssessments() {
 
         return assessments;
     } catch (error) {
-        console.error("Error fetching assessments:", error);
-        throw new Error("Failed to fetch assessments");
+        console.error("Error al obtener las evaluaciones:", error);
+        throw new Error("Error al obtener las evaluaciones");
     }
 }

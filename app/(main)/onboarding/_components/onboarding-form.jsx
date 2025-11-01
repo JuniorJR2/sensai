@@ -68,7 +68,7 @@ const OnboardingForm = ({ industries }) => {
 
   useEffect(() => {
     if (updateResult?.success && !updateLoading) {
-      toast.success('Profile completed successfully');
+      toast.success('Perfil completado con éxito');
       router.push('/dashboard');
       router.refresh();
     }
@@ -81,17 +81,17 @@ const OnboardingForm = ({ industries }) => {
       <Card className="w-full max-w-lg mt-10 mx-2">
         <CardHeader>
           <CardTitle className="gradient-title text-4xl">
-            Complete your Profile
+            Completa tu Perfil
           </CardTitle>
           <CardDescription>
-            Select your industry to get personalized career insights and
-            recommendations
+            Selecciona tu industria para obtener perspectivas de carrera y
+            recomendaciones personalizadas
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-2">
-              <Label htmlFor="industry">Industry</Label>
+              <Label htmlFor="industry">Industria</Label>
               <Select
                 onValueChange={(value) => {
                   setValue('industry', value);
@@ -102,7 +102,7 @@ const OnboardingForm = ({ industries }) => {
                 }}
               >
                 <SelectTrigger id="industry">
-                  <SelectValue placeholder="Select an industry" />
+                  <SelectValue placeholder="Selecciona una industria" />
                 </SelectTrigger>
                 <SelectContent>
                   {industries.map((ind) => {
@@ -123,12 +123,12 @@ const OnboardingForm = ({ industries }) => {
 
             {watchIndustry && (
               <div className="space-y-2">
-                <Label htmlFor="subIndustry">Specialization</Label>
+                <Label htmlFor="subIndustry">Especialización</Label>
                 <Select
                   onValueChange={(value) => setValue('subIndustry', value)}
                 >
                   <SelectTrigger id="subIndustry">
-                    <SelectValue placeholder="Select an industry" />
+                    <SelectValue placeholder="Selecciona una especialización" />
                   </SelectTrigger>
                   <SelectContent>
                     {selectedIndustry?.subIndustries.map((ind) => {
@@ -149,13 +149,13 @@ const OnboardingForm = ({ industries }) => {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="experience">Years of Experience</Label>
+              <Label htmlFor="experience">Años de Experiencia</Label>
               <Input
                 id="experience"
                 type="number"
                 min="0"
                 max="50"
-                placeholder="Enter years of experience"
+                placeholder="Introduce tus años de experiencia"
                 {...register('experience')}
               />
               {errors.experience && (
@@ -166,14 +166,14 @@ const OnboardingForm = ({ industries }) => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="skills">Skills</Label>
+              <Label htmlFor="skills">Habilidades</Label>
               <Input
                 id="skills"
-                placeholder="e.g., Python, JavaScript, Project Management"
+                placeholder="ej., Python, JavaScript, Gestión de Proyectos"
                 {...register('skills')}
               />
               <p className="text-sm text-muted-foreground">
-                Separate multiple skills with commas
+                Separa múltiples habilidades con comas
               </p>
               {errors.skills && (
                 <p className="text-sm text-red-500">{errors.skills.message}</p>
@@ -181,10 +181,10 @@ const OnboardingForm = ({ industries }) => {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="bio">Professional Bio</Label>
+              <Label htmlFor="bio">Biografía Profesional</Label>
               <Textarea
                 id="bio"
-                placeholder="Tell us about your professional background..."
+                placeholder="Cuéntanos sobre tu trayectoria profesional..."
                 className="h-32"
                 {...register('bio')}
               />
@@ -198,10 +198,10 @@ const OnboardingForm = ({ industries }) => {
               {updateLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Saving...
+                  Guardando...
                 </>
               ) : (
-                'Complete Profile'
+                'Completar Perfil'
               )}
             </Button>
           </form>

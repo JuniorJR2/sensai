@@ -1,32 +1,32 @@
 export const faqs = [
   {
-    question: "What makes Sensai unique as a career development tool?",
+    question: "¿Qué hace a Sensai único como herramienta de desarrollo profesional?",
     answer:
-      "Sensai combines AI-powered career tools with industry-specific insights to help you advance your career. Our platform offers three main features: an intelligent resume builder, a cover letter generator, and an adaptive interview preparation system. Each tool is tailored to your industry and skills, providing personalized guidance for your professional journey.",
+      "Sensai combina herramientas de carrera con IA y conocimientos específicos de la industria para ayudarte a avanzar profesionalmente. Nuestra plataforma ofrece tres características principales: un creador de currículums inteligente, un generador de cartas de presentación y un sistema adaptativo de preparación para entrevistas. Cada herramienta está adaptada a tu industria y habilidades, proporcionando una guía personalizada para tu trayectoria profesional.",
   },
   {
-    question: "How does Sensai create tailored content?",
+    question: "¿Cómo crea Sensai contenido personalizado?",
     answer:
-      "Sensai learns about your industry, experience, and skills during onboarding. It then uses this information to generate customized resumes, cover letters, and interview questions. The content is specifically aligned with your professional background and industry standards, making it highly relevant and effective.",
+      "Sensai aprende sobre tu industria, experiencia y habilidades durante el proceso de bienvenida. Luego, utiliza esta información para generar currículums, cartas de presentación y preguntas de entrevista personalizadas. El contenido está específicamente alineado con tu perfil profesional y los estándares de la industria, lo que lo hace muy relevante y efectivo.",
   },
   {
-    question: "How accurate and up-to-date are Sensai's industry insights?",
+    question: "¿Qué tan precisas y actualizadas son las perspectivas de la industria de Sensai?",
     answer:
-      "We update our industry insights weekly using advanced AI analysis of current market trends. This includes salary data, in-demand skills, and industry growth patterns. Our system constantly evolves to ensure you have the most relevant information for your career decisions.",
+      "Actualizamos nuestras perspectivas de la industria semanalmente utilizando un análisis avanzado con IA de las tendencias actuales del mercado. Esto incluye datos salariales, habilidades demandadas y patrones de crecimiento industrial. Nuestro sistema evoluciona constantemente para asegurar que tengas la información más relevante para tus decisiones de carrera.",
   },
   {
-    question: "Is my data secure with Sensai?",
+    question: "¿Están mis datos seguros con Sensai?",
     answer:
-      "Absolutely. We prioritize the security of your professional information. All data is encrypted and securely stored using industry-standard practices. We use Clerk for authentication and never share your personal information with third parties.",
+      "Absolutamente. Priorizamos la seguridad de tu información profesional. Todos los datos se cifran y almacenan de forma segura utilizando prácticas estándar de la industria. Usamos Clerk para la autenticación y nunca compartimos tu información personal con terceros.",
   },
   {
-    question: "How can I track my interview preparation progress?",
+    question: "¿Cómo puedo seguir mi progreso en la preparación de entrevistas?",
     answer:
-      "Sensai tracks your performance across multiple practice interviews, providing detailed analytics and improvement suggestions. You can view your progress over time, identify areas for improvement, and receive AI-generated tips to enhance your interview skills based on your responses.",
+      "Sensai rastrea tu rendimiento a lo largo de múltiples entrevistas de práctica, proporcionando análisis detallados y sugerencias de mejora. Puedes ver tu progreso con el tiempo, identificar áreas de mejora y recibir consejos generados por IA para mejorar tus habilidades de entrevista basadas en tus respuestas.",
   },
   {
-    question: "Can I edit the AI-generated content?",
+    question: "¿Puedo editar el contenido generado por la IA?",
     answer:
-      "Yes! While Sensai generates high-quality initial content, you have full control to edit and customize all generated resumes, cover letters, and other content. Our markdown editor makes it easy to refine the content to perfectly match your needs.",
+      "¡Sí! Aunque Sensai genera contenido inicial de alta calidad, tienes control total para editar y personalizar todos los currículums, cartas de presentación y otro contenido generado. Nuestro editor markdown facilita el refinar el contenido para que se ajuste perfectamente a tus necesidades.",
   },
 ];

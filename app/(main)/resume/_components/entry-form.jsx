@@ -82,10 +82,10 @@ export function EntryForm({ type, entries, onChange }) {
   useEffect(() => {
     if (improvedContent && !isImproving) {
       setValue('description', improvedContent);
-      toast.success('Description improved successfully!');
+      toast.success('¡Descripción mejorada con éxito!');
     }
     if (improveError) {
-      toast.error(improveError.message || 'Failed to improve description');
+      toast.error(improveError.message || 'Error al mejorar la descripción');
     }
   }, [improvedContent, improveError, isImproving, setValue]);
 
@@ -93,7 +93,7 @@ export function EntryForm({ type, entries, onChange }) {
   const handleImproveDescription = async () => {
     const description = watch('description');
     if (!description) {
-      toast.error('Please enter a description first');
+      toast.error('Por favor, introduce una descripción primero');
       return;
     }
 
@@ -124,7 +124,7 @@ export function EntryForm({ type, entries, onChange }) {
             <CardContent>
               <p className="text-sm text-muted-foreground">
                 {item.current
-                  ? `${item.startDate} - Present`
+                  ? `${item.startDate} - Presente`
                   : `${item.startDate} - ${item.endDate}`}
               </p>
               <p className="mt-2 text-sm whitespace-pre-wrap">
@@ -138,13 +138,13 @@ export function EntryForm({ type, entries, onChange }) {
       {isAdding && (
         <Card>
           <CardHeader>
-            <CardTitle>Add {type}</CardTitle>
+            <CardTitle>Añadir {type}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Input
-                  placeholder="Title/Position"
+                  placeholder="Título/Puesto"
                   {...register('title')}
                   error={errors.title}
                 />
@@ -155,7 +155,7 @@ export function EntryForm({ type, entries, onChange }) {
 
               <div className="space-y-2">
                 <Input
-                  placeholder="Organization/Company"
+                  placeholder="Organización/Empresa"
                   {...register('organization')}
                   error={errors.organization}
                 />
@@ -208,12 +208,12 @@ export function EntryForm({ type, entries, onChange }) {
                   }
                 }}
               />
-              <label htmlFor="current">Current {type}</label>
+              <label htmlFor="current">{type} Actual</label>
             </div>
 
             <div className="space-y-2">
               <Textarea
-                placeholder={`Description of your ${type.toLowerCase()}`}
+                placeholder={`Descripción de tu ${type.toLowerCase()}`}
                 className="h-32"
                 {...register('description')}
                 error={errors.description}
@@ -234,12 +234,12 @@ export function EntryForm({ type, entries, onChange }) {
               {isImproving ? (
                 <>
                   <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Improving...
+                  Mejorando...
                 </>
               ) : (
                 <>
                   <Sparkles className="h-4 w-4 mr-2" />
-                  Improve with AI
+                  Mejorar con IA
                 </>
               )}
             </Button>
@@ -253,11 +253,11 @@ export function EntryForm({ type, entries, onChange }) {
                 setIsAdding(false);
               }}
             >
-              Cancel
+              Cancelar
             </Button>
             <Button type="button" onClick={handleAdd}>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Add Entry
+              Añadir Entrada
             </Button>
           </CardFooter>
         </Card>
@@ -270,7 +270,7 @@ export function EntryForm({ type, entries, onChange }) {
           onClick={() => setIsAdding(true)}
         >
           <PlusCircle className="h-4 w-4 mr-2" />
-          Add {type}
+          Añadir {type}
         </Button>
       )}
     </div>

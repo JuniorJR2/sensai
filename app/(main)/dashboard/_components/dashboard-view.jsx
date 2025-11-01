@@ -74,21 +74,21 @@ const DashboardView = ({ insights }) => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <Badge variant="outline">Last updated: {lastUpdatedDate}</Badge>
+        <Badge variant="outline">Ultima actualizacion: {lastUpdatedDate}</Badge>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Market Outlook
+              Perspectivas del Mercado
             </CardTitle>
             <OutlookIcon className={`h-4 w-4 ${outlookColor}`} />
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{insights.marketOutlook}</div>
             <p className="text-sm text-muted-foreground">
-              Next update {nextUpdateDistance}
+              Proxima actualizacion {nextUpdateDistance}
             </p>
           </CardContent>
         </Card>
@@ -96,7 +96,7 @@ const DashboardView = ({ insights }) => {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">
-              Industry Growth
+              Crecimiento de la Industria
             </CardTitle>
             <TrendingUp className={`h-4 w-4 text-muted-foreground`} />
           </CardHeader>
@@ -110,7 +110,9 @@ const DashboardView = ({ insights }) => {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Demand Level</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Nivel de Demanda
+            </CardTitle>
             <BriefcaseIcon className={`h-4 w-4 ${outlookColor}`} />
           </CardHeader>
           <CardContent>
@@ -125,7 +127,9 @@ const DashboardView = ({ insights }) => {
 
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Top Skills</CardTitle>
+            <CardTitle className="text-sm font-medium">
+              Habilidades Principales
+            </CardTitle>
             <Brain className={`h-4 w-4 text-muted-foreground`} />
           </CardHeader>
           <CardContent>
@@ -142,9 +146,9 @@ const DashboardView = ({ insights }) => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Salary Ranges by Role</CardTitle>
+          <CardTitle>Rangos Salariales por Rol</CardTitle>
           <CardDescription>
-            Display minimum, median, and maximun salarie (in thousands)
+            Muestra el salario mínimo, mediano y máximo (en miles)
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -185,9 +189,9 @@ const DashboardView = ({ insights }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle>Key Industry Trends</CardTitle>
+            <CardTitle>Tendencias Clave de la Industria</CardTitle>
             <CardDescription>
-              Current trends shaping the industry
+              Tendencias actuales que moldean la industria
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -204,8 +208,10 @@ const DashboardView = ({ insights }) => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Recommended Skills</CardTitle>
-            <CardDescription>Skills to consider developing</CardDescription>
+            <CardTitle>Habilidades Recomendadas</CardTitle>
+            <CardDescription>
+              Habilidades a considerar desarrollar
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">

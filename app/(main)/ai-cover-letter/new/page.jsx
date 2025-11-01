@@ -10,16 +10,17 @@ export default function NewCoverLetterPage() {
         <Link href="/ai-cover-letter">
           <Button variant="link" className="gap-2 pl-0">
             <ArrowLeft className="h-4 w-4" />
-            Back to Cover Letters
+            Volver a Cartas de Presentación
           </Button>
         </Link>
 
         <div className="pb-6">
           <h1 className="text-6xl font-bold gradient-title">
-            Create Cover Letter
+            Crear Carta de Presentación
           </h1>
           <p className="text-muted-foreground">
-            Generate a tailored cover letter for your job application
+            Genera una carta de presentación personalizada para tu solicitud de
+            empleo
           </p>
         </div>
       </div>

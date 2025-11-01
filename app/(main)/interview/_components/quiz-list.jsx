@@ -30,14 +30,14 @@ const QuizList = ({ assessments }) => {
           <div className="flex items-center justify-between">
             <div>
               <CardTitle className="gradient-title text-3xl md:text-4xl">
-                Recent Quizzes
+                Cuestionarios Recientes
               </CardTitle>
               <CardDescription>
-                Review your past quiz performance
+                Revisa tu rendimiento en cuestionarios anteriores
               </CardDescription>
             </div>
             <Button onClick={() => router.push('/interview/mock')}>
-              Start New Quiz
+              Comenzar Nuevo Cuestionario
             </Button>
           </div>
         </CardHeader>
@@ -51,10 +51,10 @@ const QuizList = ({ assessments }) => {
               >
                 <CardHeader>
                   <CardTitle className="gradient-title text-2xl">
-                    Quiz {i + 1}
+                    Cuestionario {i + 1}
                   </CardTitle>
                   <CardDescription className="flex justify-between w-full">
-                    <div>Score: {assessment.quizScore.toFixed(1)}%</div>
+                    <div>Puntuacion: {assessment.quizScore.toFixed(1)}%</div>
                     <div>
                       {format(
                         new Date(assessment.createdAt),

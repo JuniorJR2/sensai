@@ -15,7 +15,7 @@ export default function QuizResult({
     <div className="mx-auto">
       <h1 className="flex items-center gap-2 text-3xl gradient-title">
         <Trophy className="h-6 w-6 text-yellow-500" />
-        Quiz Results
+        Resultados del Cuestionario
       </h1>
 
       <CardContent className="space-y-6">
@@ -28,14 +28,14 @@ export default function QuizResult({
         {/* Improvement Tip */}
         {result.improvementTip && (
           <div className="bg-muted p-4 rounded-lg">
-            <p className="font-medium">Improvement Tip:</p>
+            <p className="font-medium">Consejo de Mejora:</p>
             <p className="text-muted-foreground">{result.improvementTip}</p>
           </div>
         )}
 
         {/* Questions Review */}
         <div className="space-y-4">
-          <h3 className="font-medium">Question Review</h3>
+          <h3 className="font-medium">Revision de Preguntas</h3>
           {result.questions.map((q, index) => (
             <div key={index} className="border rounded-lg p-4 space-y-2">
               <div className="flex items-start justify-between gap-2">
@@ -47,11 +47,11 @@ export default function QuizResult({
                 )}
               </div>
               <div className="text-sm text-muted-foreground">
-                <p>Your answer: {q.userAnswer}</p>
-                {!q.isCorrect && <p>Correct answer: {q.answer}</p>}
+                <p>Tu respuesta: {q.userAnswer}</p>
+                {!q.isCorrect && <p>Respuesta Correcta: {q.answer}</p>}
               </div>
               <div className="text-sm bg-muted p-2 rounded">
-                <p className="font-medium">Explanation:</p>
+                <p className="font-medium">Explicacion:</p>
                 <p>{q.explanation}</p>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function QuizResult({
       {!hideStartNew && (
         <CardFooter>
           <Button onClick={onStartNew} className="w-full">
-            Start New Quiz
+            Comenzar Nuevo Cuestionario
           </Button>
         </CardFooter>
       )}

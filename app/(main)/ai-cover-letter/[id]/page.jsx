@@ -14,12 +14,12 @@ export default async function EditCoverLetterPage({ params }) {
         <Link href="/ai-cover-letter">
           <Button variant="link" className="gap-2 pl-0">
             <ArrowLeft className="h-4 w-4" />
-            Back to Cover Letters
+            Volver a Cartas de Presentacion
           </Button>
         </Link>
 
         <h1 className="text-6xl font-bold gradient-title mb-6">
-          {coverLetter?.jobTitle} at {coverLetter?.companyName}
+          {coverLetter?.jobTitle} en {coverLetter?.companyName}
         </h1>
       </div>
 

@@ -11,13 +11,16 @@ export default function MockInterviewPage() {
         <Link href={'/interview'}>
           <Button variant="link" className="gap-2 pl-0">
             <ArrowLeft className="h-4 w-4" />
-            Back to interview Preparation
+            Volver a la Preparacion de Entrevista
           </Button>
         </Link>
         <div>
-          <h1 className="text-6xl font-bold gradient-title">Mock Interview</h1>
+          <h1 className="text-6xl font-bold gradient-title">
+            Entrevista Simulada
+          </h1>
           <p className="text-muted-foreground">
-            Test your knowledge with industry-specific questions
+            Pon a prueba tus conocimientos con preguntas especificas de la
+            industria
           </p>
         </div>
       </div>

@@ -73,9 +73,11 @@ export default function Quiz() {
     const score = calculateScore();
     try {
       await saveQuizResultFn(quizData, answers, score);
-      toast.success('Quiz completed!');
+      toast.success('¡Cuestionario completado!');
     } catch (error) {
-      toast.error(error.message || 'Failed to save quiz results');
+      toast.error(
+        error.message || 'Error al guardar los resultados del cuestionario'
+      );
     }
   };
 
@@ -104,17 +106,18 @@ export default function Quiz() {
     return (
       <Card className="mx-2">
         <CardHeader>
-          <CardTitle>Ready to test your knowledge</CardTitle>
+          <CardTitle>¿Listo para poner a prueba tus conocimientos?</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground">
-            This quiz contains 10 questions specific to your industry and
-            skills. Take your tima and choose the best answer for each questions
+            Este cuestionario contiene 10 preguntas específicas de tu industria
+            y habilidades. Tómate tu tiempo y elige la mejor respuesta para cada
+            pregunta.
           </p>
         </CardContent>
         <CardFooter>
           <Button onClick={generateQuizFn} className="w-full">
-            Start Quiz
+            Comenzar Cuestionario
           </Button>
         </CardFooter>
       </Card>
@@ -126,7 +129,7 @@ export default function Quiz() {
     <Card className="mx-2">
       <CardHeader>
         <CardTitle>
-          Question {currentQuestion + 1} of {quizData.length}
+          Pregunta {currentQuestion + 1} de {quizData.length}
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -148,7 +151,7 @@ export default function Quiz() {
 
         {showExplanation && (
           <div className="mt-4 p-4 bg-muted rounded-lg">
-            <p className="font-medium">Explanation:</p>
+            <p className="font-medium">Explicación:</p>
             <p className="text-muted-foreground">{question.explanation}</p>
           </div>
         )}
@@ -160,7 +163,7 @@ export default function Quiz() {
             variant="outline"
             disabled={!answers[currentQuestion]}
           >
-            Show Explanation
+            Mostrar Explicación
           </Button>
         )}
         <Button
@@ -170,8 +173,8 @@ export default function Quiz() {
         >
           {savingResult && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
           {currentQuestion < quizData.length - 1
-            ? 'Next Question'
-            : 'Finish Quiz'}
+            ? 'Siguiente Pregunta'
+            : 'Finalizar Cuestionario'}
         </Button>
       </CardFooter>
     </Card>

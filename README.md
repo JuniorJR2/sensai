@@ -56,3 +56,10 @@ NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/onboarding
 
 # Clave de la API de Google Gemini
 GEMINI_API_KEY=
+
+
+npm run dev
+# o
+yarn dev
+# o
+pnpm dev
